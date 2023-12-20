@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Potato Head Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Mr. Potato Head Game</h1>
+        <div id="game-container" class="position-relative">
+            <img id="potato-body" src="body.png" alt="Potato Body">
+            <div id="eyes" class="part draggable">
+                <img src="eyes.png" alt="Potato Eyes">
+            </div>
+            <div id="nose" class "part draggable">
+                <img src="nose.png" alt="Potato Nose">
+            </div>
+            <div id="mouth" class="part draggable">
+                <img src="mouth.png" alt="Potato Mouth">
+            </div>
+            <div id="hat" class="part draggable">
+                <img src="hat.png" alt="Potato Hat">
+            </div>
+        </div>
+        <button id="capture-button" class="btn btn-primary mt-3">Capture Image</button>
+        <p id="downloaded-text" class="text-center font-weight-bold mt-3" style="display: none;"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Make the parts draggable
+            $('.draggable').draggable();
+
+            // Initialize the drop area
+            $('#game-container').droppable({
+                accept: '.draggable',
+                drop: function (event, ui) {
+                    // Move the original element to the game container
+                    const draggedElement = ui.draggable;
+                    $(this).append(draggedElement);
+                },
+            });
+
+            // Capture the potato head and save it as an image
+            $('#capture-button').click(function () {
+                html2canvas($('#game-container')).then(function (canvas) {
+                    const image = canvas.toDataURL('image/png');
+                    const a = document.createElement('a');
+
+                    a.setAttribute('download', 'potato_screenshot.png');
+                    a.setAttribute('href', image);
+                    a.click();
+
+                    const downloaded = $('#downloaded-text');
+                    downloaded.text('Screenshot taken! Check your downloads folder.');
+                    downloaded.show();
+                });
+            });
+        });
+    </script>
+
+    <script>
+        // Image Zoom and Revert Functionality
+        $('.part img').on('mouseenter', function () {
+            $(this).animate({
+                width: '100%',
+                height: '100%',
+            }, 500);
+        });
+
+        $('.part img').on('mouseleave', function () {
+            $(this).animate({
+                width: 'auto',
+                height: 'auto',
+            }, 500);
+        });
+    </script>
+</body>
+</html>
