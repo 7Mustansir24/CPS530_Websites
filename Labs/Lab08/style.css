@@ -1,0 +1,145 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Set default text color to a dark color for better readability */
+    background-color: #f4f4f4; /* Set a light background color for the entire page */
+}
+
+h1 {
+    text-align: center;
+	
+    color: #bebebe; /* Set heading color to an attractive color */
+	
+h2 {
+    text-align: center;
+    color: #ff6600; /* Set heading color to an attractive color */
+}
+
+/* Problem 1 Section Styles */
+#problem1 {
+   
+	margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Problem 2 Section Styles */
+#problem2 {
+    text-align: center;
+    margin-top: 50px; /* Increase the top margin for more space above */
+    margin-bottom: 50px; /* Increase the bottom margin for more space below */
+    border-top: 2px solid #333; /* Set border color to a dark color */
+    border-bottom: 2px solid #333; /* Set border color to a dark color */
+    padding: 20px;
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    font-size: 24px; /* Adjust font size for the heading */
+    margin-bottom: 10px; /* Adjust margin below heading */
+    color: #ff6600; /* Set heading color to an attractive color */
+}
+
+.section-heading p {
+    color: #333; /* Set text color to a dark color */
+}
+
+.problem-box {
+    margin-top: 20px; /* Adjust the top margin for the problem box */
+    padding: 20px;
+    border: 2px solid #333; /* Set border color to a dark color */
+    border-radius: 10px;
+    text-align: center;
+}
+
+.problem-box form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Adjust the top margin within the form */
+}
+
+.problem-box input,
+.problem-box button {
+    margin: 10px;
+}
+
+.problem-box button {
+    background-color: #ff6600; /* Set button background color to an attractive color */
+    color: #fff; /* Set button text color to white for better contrast */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.problem-box button:hover {
+    background-color: #e64d00; /* Darken the button color on hover */
+}
+
+/* Problem 3 Section Styles */
+#problem3 {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+#hit-counter {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #333; /* Set background color to a dark color */
+    color: #fff; /* Set text color to white for better contrast */
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Problem 4 Section Styles */
+#problem4 {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#problem4 a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333; /* Set link color to a dark color */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#problem4 a:hover {
+    color: #ff6600; /* Change link color on hover to an attractive color */
+}
+
+.return {
+    text-align: center;
+    font-weight: bold;
+}
+
+#halloween-img {
+    margin-top: 20px;
+    text-align: center;
+    opacity: 0.8;
+    max-width: 150px; /* Adjust the maximum width as needed */
+}
+
+/* Additional Global Link Styles */
+a {
+    text-decoration: none;
+    color: #333; /* Set link color to a dark color */
+}
+
+a:hover {
+    color: #ff6600; /* Change link color on hover to an attractive color */
+}
