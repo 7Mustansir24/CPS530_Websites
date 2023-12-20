@@ -1,0 +1,30 @@
+#!/usr/bin/perl -wT 
+use CGI':standard';
+use strict;
+use CGI::Carp qw(warningsToBrowser fatalsToBrowser); 
+
+print "Content-type: text/html\n\n";
+print "<!DOCTYPE html>\n";
+print "<html lang='en'>\n";
+print "<head>\n";
+print "    <meta charset='UTF-8'>\n";
+print "    <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n";
+print "    <title>First Perl Program</title>\n";
+print "    <style>\n";
+print "        body {\n";
+print "            font-family: 'Roboto', sans-serif;\n";
+print "            color: #3498db;\n";
+print "        }\n";
+print "        .center {\n";
+print "            text-align: center;\n";
+print "            position: absolute;\n";
+print "            top: 50%;\n";
+print "            left: 50%;\n";
+print "            transform: translate(-50%, -50%);\n";
+print "        }\n";
+print "    </style>\n";
+print "</head>\n";
+print "<body>\n";
+print "    <div class='center'><h1>This is my first Perl program</h1></div>\n";
+print "</body>\n";
+print "</html>\n";
