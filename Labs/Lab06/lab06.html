@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: #fff;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h1 {
+            font-size: 24px;
+        }
+        .flag-title {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .flag-svg {
+            display: block;
+            margin: 10px 0;
+        }
+        .flag-image {
+            width: 100%;
+            max-width: 300px;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Lab 06</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Problem 1: Polygons</h1>
+        <div class="row">
+            <div class="col-md-3">
+                <svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Triangle -->
+                    <polygon points="50,20 100,100 0,100" fill="blue" />
+                </svg>
+            </div>
+            <div class="col-md-3">
+                <svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Square -->
+                    <polygon points="0,0 100,0 100,100 0,100" fill="green" />
+                </svg>
+            </div>
+            <div class="col-md-3">
+                <svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Pentagon -->
+                    <polygon points="50,0 100,40 80,100 20,100 0,40" fill="red" />
+                </svg>
+            </div>
+            <div class="col-md-3">
+                <svg width="100%" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Hexagon -->
+                    <polygon points="60,0 100,25 100,75 60,100 20,75 20,25" fill="purple" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Problem 2: Flags</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="flag-title">Italy Flag (SVG)</h2>
+                <svg class="flag-svg" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Italy Flag -->
+                    <rect x="0" y="0" width="33.33%" height="100%" fill="#007a3d" />
+                    <rect x="33.33%" y="0" width="33.33%" height="100%" fill="#fff" />
+                    <rect x="66.66%" y="0" width="33.34%" height="100%" fill="#ce1126" />
+                </svg>
+            </div>
+            <div class="col-md-6">
+                <h2 class="flag-title">France Flag (SVG)</h2>
+                <svg class="flag-svg" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- France Flag -->
+                    <rect x="0" y="0" width="33.33%" height="100%" fill="#0055A4" />
+                    <rect x="33.33%" y="0" width="33.34%" height="100%" fill="#fff" />
+                    <rect x="66.67%" y="0" width="33.33%" height="100%" fill="#EF4135" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="flag-title">Flag Images (Raster)</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img class="flag-image" src="italy_flag.png" alt="Italy Flag" />
+            </div>
+            <div class="col-md-6">
+                <img class="flag-image" src="france_flag.jpg" alt="France Flag" />
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
