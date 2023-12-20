@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 04</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f5f7;
+            padding: 20px;
+        }
+        .result {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .secure-icon {
+            color: green; /* Green color for secure padlock */
+        }
+        .insecure-icon {
+            color: red; /* Red color for insecure padlock */
+        }
+        .secure-label {
+            color: green;
+        }
+        .insecure-label {
+            color: red;
+        }
+        .navbar {
+            background-color: #343a40;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+        }
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #343a40;
+        }
+        .btn-primary {
+            background-color: #343a40;
+            border-color: #343a40;
+        }
+        .btn-primary:hover {
+            background-color: #292f34;
+            border-color: #292f34;
+        }
+        .bookmark-item {
+            display: flex;
+            align-items: center;
+        }
+        .bookmark-label {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Lab 04</a>
+    </nav>
+    <div class="container mt-4">
+        <h1>Problem 1</h1>
+        <form id="userForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number (e.g., (416) 555-5555):</label>
+                <input type="text" id="phone" class="form-control" required>
+            </div>
+            <button id="validateButton" class="btn btn-primary">Validate</button>
+        </form>
+        <div id="result1" class="result"></div>
+        <script>
+            // Problem 1 JavaScript
+            let validatedInfo = null; // To store the validated information
+            function isValidName(name) {
+                return /^[a-zA-Z\s]+$/.test(name);
+            }
+            function formatPhoneNumber(phone) {
+                return phone.replace(/\((\d{3})\)\s(\d{3})-(\d{4})/, "$1-$2-$3");
+            }
+            const result1 = document.getElementById("result1");
+            const userForm = document.getElementById("userForm");
+            userForm.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                const name = document.getElementById("name").value;
+                const phone = document.getElementById("phone").value;
+                const address = document.getElementById("address").value;
+                if (isValidName(name) && /^\(\d{3}\)\s\d{3}-\d{4}$/.test(phone)) {
+                    validatedInfo = {
+                        name,
+                        phone: formatPhoneNumber(phone),
+                        address
+                    };
+                    result1.innerHTML = `
+                        <div>Name: <span style="font-size: 24px">${validatedInfo.name}</span></div>
+                        <div>Address: <span style="font-size: 24px">${validatedInfo.address}</span></div>
+                        <div>Phone Number: <span style="font-size: 24px">${validatedInfo.phone}</span></div>
+                    `;
+                } else {
+                    alert("Please enter a valid name and phone number.");
+                }
+            });
+            // Display the previously validated information if available
+            if (validatedInfo) {
+                result1.innerHTML = `
+                    <div>Name: <span style="font-size: 24px">${validatedInfo.name}</span></div>
+                    <div>Address: <span style="font-size: 24px">${validatedInfo.address}</span></div>
+                    <div>Phone Number: <span style="font-size: 24px">${validatedInfo.phone}</span></div>
+                `;
+            }
+        </script>
+        <h1>Problem 2</h1>
+        <div class="form-group">
+            <textarea id="textArea" rows="4" class="form-control"></textarea>
+        </div>
+        <div id="charCount" class="result">Character Count: 0</div>
+        <div id="letterCount" class="result">Letter Count: 0</div>
+        <script>
+            // Problem 2 JavaScript
+            const textArea = document.getElementById("textArea");
+            const charCount = document.getElementById("charCount");
+            const letterCount = document.getElementById("letterCount");
+            textArea.addEventListener("input", () => {
+                const text = textArea.value;
+                charCount.textContent = `Character Count: ${text.length}`;
+                const letters = text.match(/[a-zA-Z]/g);
+                letterCount.textContent = `Letter Count: ${letters ? letters.length : 0}`;
+            });
+        </script>
+        <h1>Problem 3</h1>
+        <div class="form-group">
+            <label for="url">Enter a URL:</label>
+            <input type="text" id="url" class="form-control">
+            <button id="addBookmarkButton" class="btn btn-primary mt-2">Add Bookmark</button>
+        </div>
+        <ul id="bookmarksList" class="list-group mt-3">
+            <li class="list-group-item bookmark-item">
+                <span class="secure-label">Secure</span>
+                <span class="mr-2 secure-icon">🔒</span>
+                <a href="https://www.example-secure.com" target="_blank">https://www.example-secure.com</a>
+            </li>
+            <li class="list-group-item bookmark-item">
+                <span class="insecure-label">Insecure</span>
+                <span class="mr-2 insecure-icon">🔓</span>
+                <a href="http://www.example-insecure.com" target="_blank">http://www.example-insecure.com</a>
+            </li>
+        </ul>
+        <script>
+            // Problem 3 JavaScript
+            const bookmarksList = document.getElementById("bookmarksList");
+            const addBookmarkButton = document.getElementById("addBookmarkButton");
+            addBookmarkButton.addEventListener("click", () => {
+                const urlInput = document.getElementById("url");
+                const url = urlInput.value.trim();
+                if (url) {
+                    createBookmark(url);
+                    urlInput.value = "";
+                }
+            });
+            function createBookmark(url) {
+                const listItem = document.createElement("li");
+                listItem.className = "list-group-item d-flex align-items-center bookmark-item";
+                let secure = false;
+                let iconClass = "insecure-icon";
+                let labelClass = "insecure-label";
+                if (url.startsWith("https://")) {
+                    secure = true;
+                    iconClass = "secure-icon";
+                    labelClass = "secure-label";
+                }
+                listItem.innerHTML = `
+                    <span class="${labelClass}">${secure ? 'Secure' : 'Insecure'}</span>
+                    <span class="mr-2 ${iconClass}">${secure ? '🔒' : '🔓'}</span>
+                    <a href="${url}" target="_blank">${url}</a>`;
+                bookmarksList.appendChild(listItem);
+            }
+        </script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
