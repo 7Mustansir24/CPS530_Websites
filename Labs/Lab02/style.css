@@ -1,0 +1,143 @@
+/* Reset default styles */
+body, h1, h2, h3, p, ul, li, figure, img, header, nav, main, section, footer, details, summary {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply royal blue color scheme */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f5ff; /* Royal blue background */
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #1c2331; /* Dark blue background for header */
+    color: #fff; /* White text for header */
+    padding: 20px 0;
+    text-align: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background-color: #fff; /* White background for sections */
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+figcaption {
+    font-style: italic;
+    text-align: center;
+}
+
+footer {
+    background-color: #1c2331; /* Dark blue background for footer */
+    color: #fff; /* White text for footer */
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Hover effect for all sections */
+section:hover {
+    background-color: #e0e5ff; /* Light blue on hover */
+}
+
+/* Layout with Flexbox */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+/* Absolute and Relative Units */
+header {
+    font-size: 24px;
+}
+
+section {
+    font-size: 18px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+/* Show and Hide Element */
+aside {
+    display: none;
+}
+
+/* Layering with z-index */
+header {
+    position: relative;
+    z-index: 1;
+}
+
+main {
+    position: relative;
+    z-index: 0;
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* Styling using IDs and Classes */
+#about {
+    background-color: #f9f9f9; /* Light gray background for About Me section */
+}
+
+#experience {
+    background-color: #f9f9f9; /* Light gray background for My Experience section */
+}
+
+#hobbies {
+    background-color: #f9f9f9; /* Light gray background for Hobbies section */
+}
+
+#additional-info {
+    background-color: #f9f9f9; /* Light gray background for Additional Information section */
+}
+
+/* Hover effect for specific IDs */
+#about:hover,
+#experience:hover,
+#hobbies:hover,
+#additional-info:hover {
+    background-color: #e0e5ff; /* Light blue on hover */
+}
